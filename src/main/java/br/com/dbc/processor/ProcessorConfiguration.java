@@ -10,7 +10,9 @@ import org.springframework.core.task.TaskExecutor;
 import br.com.dbc.model.Conta;
 import br.com.dbc.service.ReceitaService;
 import br.com.dbc.utils.Utils;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Configuration
 public class ProcessorConfiguration {
 	
@@ -42,10 +44,10 @@ public class ProcessorConfiguration {
     					);
     			conta.setRetorno(retorno);
     			
-    			System.out.println(conta);
+    			log.info(conta.toString());
     			
     		} catch (Exception e) {
-    			System.out.println("Falha no processamento: " + "Agência:" + conta.getAgencia() + ", Conta: " + conta.getConta());
+    			log.error("Falha no processamento: " + "Agência:" + conta.getAgencia() + ", Conta: " + conta.getConta(), e);
     			conta.setRetorno(false);
     		}
             
