@@ -44,7 +44,7 @@ public class ProcessorConfiguration {
     					);
     			conta.setRetorno(retorno);
     			
-    			log.info(conta.toString());
+    			log.info("Processo executado: " + conta.toString());
     			
     		} catch (Exception e) {
     			log.error("Falha no processamento: " + "Agência:" + conta.getAgencia() + ", Conta: " + conta.getConta(), e);
